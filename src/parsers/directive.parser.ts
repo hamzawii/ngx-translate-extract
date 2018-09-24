@@ -28,9 +28,10 @@ export class DirectiveParser extends AbstractTemplateParser implements ParserInt
 			.each((i: number, element: CheerioElement) => {
 				const $element = $(element);
 				const attr = $element.attr('translate') || $element.attr('ng2-translate');
+				const val = $element.text().trim();
 
 				if (attr) {
-					collection = collection.add(attr);
+					collection = collection.add(attr, val);
 				} else {
 					$element
 						.contents()
